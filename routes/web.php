@@ -37,3 +37,16 @@ Route::get('/read', function() {
     dd($user->roles);
   }
 });
+
+Route::get('/update', function() {
+  $user = User::findOrFail(1);
+
+  if($user->has('roles')) {
+    foreach($user->roles as $role) {
+      if($role->name == 'Administrator') {
+        $role->name = strtolower($role->name);
+        $role->save();
+      }
+    }
+  }
+});
