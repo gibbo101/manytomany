@@ -29,3 +29,11 @@ Route::get('/create', function() {
 
 });
 
+Route::get('/read', function() {
+  $user = User::findOrFail(1);
+
+  foreach($user->roles as $role) {
+    echo  $role->name;
+    dd($user->roles);
+  }
+});
