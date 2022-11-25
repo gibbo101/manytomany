@@ -28,3 +28,4 @@ Route::get('/create', function() {
   $user->roles()->save($role);
 
 });
+
